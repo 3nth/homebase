@@ -1,0 +1,11 @@
+[dotfiles]
+repository = ~/homebase/dotfiles
+ignore = [
+    '.git'
+    , '.gitignore'
+    , '*.swp'
+    , '*.un~']
+externals = {
+    '.bzr.log': '/dev/null'
+    , '.uml': '/tmp'}
+packages = ['ssh']
