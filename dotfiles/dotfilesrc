@@ -8,4 +8,4 @@ ignore = [
 externals = {
     '.bzr.log': '/dev/null'
     , '.uml': '/tmp'}
-packages = ['ssh']
+packages = ['ssh', 'config']

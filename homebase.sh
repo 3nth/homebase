@@ -4,4 +4,4 @@ if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
   exit 1
 fi
 
-python homebase.py
+python ./homebase.py
