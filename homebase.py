@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 import os
+import sys
 import subprocess
 
 try:
     import ConfigParser as configparser
 except ImportError:
     import configparser
+
+PROJECT_ROOT_DIRECTORY = os.path.abspath(os.path.dirname(os.path.realpath(sys.argv[0])))
     
 parser = configparser.SafeConfigParser()
-parser.read('homebase.conf')
+parser.read(os.path.join(PROJECT_ROOT_DIRECTORY, 'homebase.conf'))
 # check if gcc is available
 
 # install brew
@@ -54,7 +57,7 @@ else:
 		else:
 			subprocess.call('pip install ' + pip, shell=True)
 
-subprocess.call('dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f', shell=True)
+subprocess.call("dotfiles -C " + os.path.join(PROJECT_ROOT_DIRECTORY, 'dotfiles', 'dotfilesrc') + " -s -f", shell=True)
 
 
 

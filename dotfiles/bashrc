@@ -14,9 +14,9 @@ function src() {
   fi
 }
 
-# Run dotfiles script, then source.
-#function dotfiles() {
-#  ~/.dotfiles/bin/dotfiles "$@" && src
-#}
+# Run homebase script, then source.
+function homebase() {
+  ~/homebase/homebase.sh "$@" && src
+}
 
 src

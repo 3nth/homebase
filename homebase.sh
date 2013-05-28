@@ -4,4 +4,11 @@ if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
   exit 1
 fi
 
-python ./homebase.py
+MYDIR="$(dirname "$0")"
+python $MYDIR/homebase.py
+
+if [ ! -e ~/.vim/bundle/vundle ]; then
+	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
+
+vim +BundleInstall +qall
