@@ -1,0 +1,4 @@
+distribute
+dotfiles
+virtualenv
+virtualenvwrapper
