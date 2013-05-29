@@ -1,0 +1,14 @@
+git
+tree
+sl
+lesspipe
+id3tool
+nmap
+git-extras
+htop-osx
+man2html
+readline
+sqlite
+gdbm
+python
+macvim --env-std --override-system-vim
