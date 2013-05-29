@@ -31,6 +31,6 @@ if [ ! -e ~/.vim/bundle/vundle ]; then
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
-vim +BundleInstall +qall 
+vim +BundleInstall +qall -e -s
 
 source ~/.bashrc
