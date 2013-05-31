@@ -15,11 +15,11 @@ if [[ ! "$(type -P brew)" ]]; then
      true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 fi
 
-e_header "Doing a kegstand..."
 MYDIR="$(dirname "$0")"
+
+e_header "Doing a kegstand..."
 python $MYDIR/kegstand.py
 e_success "installed kegs:"
-
 brew list
 
 e_success "dotfiles, yo!"
