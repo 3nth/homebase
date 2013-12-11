@@ -53,12 +53,11 @@ if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
 	brew list
 fi
 
-e_header "vi or die."
 if [ ! -e ~/.vim/bundle/vundle ]; then
+	e_header "vi or die."
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	vim +BundleInstall +qall -e -s
 fi
-
-vim +BundleInstall +qall -e -s
 
 source ~/.bashrc
 

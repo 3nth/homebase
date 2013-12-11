@@ -16,7 +16,7 @@ function src() {
 
 # Run homebase script, then source.
 function homebase() {
-  ~/homebase/homebase.sh "$@" && src
+  ~/homebase/homebase "$@" && src
 }
 
 src
