@@ -11,4 +11,4 @@ readline
 sqlite
 gdbm
 python
-macvim --env-std --override-system-vim
+macvim --env-std --override-system-vim --enable-pythoninterp

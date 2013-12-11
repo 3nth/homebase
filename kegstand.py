@@ -18,4 +18,4 @@ if len(kegs_to_install) == 0:
 else:
     for keg in kegs_to_install:
         print('Installing "%s"' % keg)
-        subprocess.call('brew install ' % keg, shell=True)
+        subprocess.call('brew install %s' % keg, shell=True)

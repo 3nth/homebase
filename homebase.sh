@@ -10,20 +10,41 @@ if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
   exit 1
 fi
 
-if [[ ! "$(type -P brew)" ]]; then
+if [[ ! "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
      e_header "Installing Homebrew"
      true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 fi
 
-MYDIR="$(dirname "$0")"
+if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
+     e_header "Installing Git"
+     brew install git
+fi
 
-e_header "Doing a kegstand..."
-python $MYDIR/kegstand.py
-e_success "installed kegs:"
-brew list
+if [[ ! "$(type -P git)" && "$(type -P yum)" ]]; then
+     e_header "Installing Git"
+     yum install git
+fi
+
+if [[ ! "$(type -P git)" && "$(type -P apt-get)" ]]; then
+     e_header "Installing Git"
+     apt-get install git
+fi
+
+if [ -d ~/homebase ]; then
+	git clone https://github.com/3nth/homebase ~/homebase
+fi
+
+if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
+	e_header "Doing a kegstand..."
+	python ~/homebase/kegstand.py
+	e_success "installed kegs:"
+	brew list
+fi
+
+pip install dotfiles
 
 e_success "dotfiles, yo!"
-dotfiles -C $MYDIR/dotfiles/dotfilesrc -s -f
+dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
 dotfiles -l
 
 e_header "vi or die."
