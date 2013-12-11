@@ -30,7 +30,7 @@ if [[ ! "$(type -P git)" && "$(type -P apt-get)" ]]; then
      apt-get install git
 fi
 
-if [ -d ~/homebase ]; then
+if [ -d "~/homebase" ]; then
 	git clone https://github.com/3nth/homebase ~/homebase
 fi
 
