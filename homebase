@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Logging stuff.
 function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
 function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
@@ -35,13 +37,6 @@ if [ ! -d ~/homebase ]; then
 	git clone https://github.com/3nth/homebase ~/homebase
 fi
 
-if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
-	e_header "Installing formulae"
-	python ~/homebase/kegstand.py
-	e_success "installed formulae:"
-	brew list
-fi
-
 if [[ ! "$(type -P dotfiles)" ]]; then
      e_header "Installing dotfiles"
 	 pip install dotfiles
@@ -50,6 +45,13 @@ if [[ ! "$(type -P dotfiles)" ]]; then
 e_header "dotfiles, yo!"
 dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
 dotfiles -l
+
+if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
+	e_header "Installing formulae"
+	python ~/homebase/kegstand.py
+	e_success "installed formulae:"
+	brew list
+fi
 
 e_header "vi or die."
 if [ ! -e ~/.vim/bundle/vundle ]; then
