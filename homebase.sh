@@ -16,34 +16,38 @@ if [[ ! "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
 fi
 
 if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
-     e_header "Installing Git"
+     e_header "Installing git"
      brew install git
 fi
 
 if [[ ! "$(type -P git)" && "$(type -P yum)" ]]; then
-     e_header "Installing Git"
+     e_header "Installing git"
      yum install git
 fi
 
 if [[ ! "$(type -P git)" && "$(type -P apt-get)" ]]; then
-     e_header "Installing Git"
+     e_header "Installing git"
      apt-get install git
 fi
 
 if [ ! -d ~/homebase ]; then
+	e_header "Cloning home"
 	git clone https://github.com/3nth/homebase ~/homebase
 fi
 
 if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
-	e_header "Doing a kegstand..."
+	e_header "Installing formulae"
 	python ~/homebase/kegstand.py
-	e_success "installed kegs:"
+	e_success "installed formulae:"
 	brew list
 fi
 
-pip install dotfiles
-
-e_success "dotfiles, yo!"
+if [[ ! "$(type -P dotfiles)" ]]; then
+     e_header "Installing dotfiles"
+	 pip install dotfiles
+ fi
+ 
+e_header "dotfiles, yo!"
 dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
 dotfiles -l
 
@@ -55,3 +59,5 @@ fi
 vim +BundleInstall +qall -e -s
 
 source ~/.bashrc
+
+e_success "Welcome Home!"
