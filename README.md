@@ -10,7 +10,7 @@ homebase will set up your home directory
 
 if you like my home, then come on in...
 
-  bash < <(curl -fsSL https://raw.github.com/3nth/homebase/master/homebase)
+    bash < <(curl -fsSL https://raw.github.com/3nth/homebase/master/homebase)
   
 ...but you probably want your own, so fork off.
 
