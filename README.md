@@ -1,7 +1,5 @@
 # homebase
 
-## homebase is
-
 a ~ builder
 
 ## homebase does
