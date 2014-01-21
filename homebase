@@ -14,7 +14,7 @@ fi
 
 if [[ ! "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
      e_header "Installing Homebrew"
-     true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+     true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 
 if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
@@ -34,7 +34,7 @@ fi
 
 if [ ! -d ~/homebase ]; then
 	e_header "Cloning home"
-	git clone https://github.com/3nth/homebase ~/homebase
+	git clone https://github.com/shandozer/homebase ~/homebase
 fi
 
 if [[ ! "$(type -P dotfiles)" ]]; then
