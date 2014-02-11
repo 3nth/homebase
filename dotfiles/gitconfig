@@ -5,7 +5,7 @@
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
-        editor = vim
+  editor = vim
 [apply]
   whitespace = fix
 [alias]
@@ -40,7 +40,7 @@
   untracked = cyan
 [merge]
   log = true
-        tool = p4merge
+  tool = p4merge
 [difftool "Kaleidoscope"]
   cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [rerere]
