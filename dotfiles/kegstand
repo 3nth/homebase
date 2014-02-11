@@ -11,4 +11,5 @@ readline
 sqlite
 gdbm
 python
-macvim --env-std --override-system-vim
+macvim --env-std --override-system-vim --enable-pythoninterp
+the_silver_searcher

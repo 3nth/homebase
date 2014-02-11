@@ -1,10 +1,11 @@
 [user]
-  name = Derek Flenniken
-  email = EMAIL
+	name = Derek Flenniken
+	email = derek.flenniken@ucsf.edu
 [core]
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
+        editor = vim
 [apply]
   whitespace = fix
 [alias]
@@ -59,7 +60,6 @@
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
 [credential]
-        help = osxkeychain
         helper = osxkeychain
 [difftool "sourcetree"]
         cmd = opendiff \"$LOCAL\" \"$REMOTE\"
