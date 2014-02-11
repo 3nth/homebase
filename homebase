@@ -14,7 +14,11 @@ fi
 
 if [[ ! "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
      e_header "Installing Homebrew"
-     true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+     true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
+
+if [[ "$(type -P brew)" ]]; then
+    e_success "homebrew installed"
 fi
 
 if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
@@ -32,33 +36,48 @@ if [[ ! "$(type -P git)" && "$(type -P apt-get)" ]]; then
      apt-get install git
 fi
 
+if [[ "$(type -P git)" ]]; then
+    e_success "git installed"
+fi
+
+e_arrow "Cloning home"
 if [ ! -d ~/homebase ]; then
-	e_header "Cloning home"
 	git clone https://github.com/3nth/homebase ~/homebase
 fi
+cd ~/homebase && git pull
 
 if [[ ! "$(type -P dotfiles)" ]]; then
      e_header "Installing dotfiles"
 	 pip install dotfiles
  fi
  
-e_header "dotfiles, yo!"
+e_arrow "dotfiles, yo!"
 dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
 dotfiles -l
 
-if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
+if [[ "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
 	e_header "Installing formulae"
 	python ~/homebase/kegstand.py
 	e_success "installed formulae:"
 	brew list
 fi
 
+e_header "vi or die."
 if [ ! -e ~/.vim/bundle/vundle ]; then
-	e_header "vi or die."
+    e_arrow "installing vundle"
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	vim +BundleInstall +qall -e -s
 fi
 
+e_arrow "updating vundle"
+cd ~/.vim/bundle/vundle && git pull
+
+e_arrow "update bundles"
+vim +BundleInstall +qall -e -s
+
+e_arrow "pip list -o"
+pip list -o
+
+e_arrow "source"
 source ~/.bashrc
 
 e_success "Welcome Home!"
