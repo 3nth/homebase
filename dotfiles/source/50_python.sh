@@ -1,7 +1,8 @@
-PYTHON_PATH=/usr/local/share/python
-PATH=$PYTHON_PATH:$(path_remove $PYTHON_PATH)
-export PATH
-
+#PYTHON_PATH=/usr/local/share/python
+#PATH=$PYTHON_PATH:$(path_remove $PYTHON_PATH)
+#export PATH
+source virtualenvwrapper.sh
+export PROJECT_HOME=~/projects
 # pip bash completion start
 _pip_completion()
 {

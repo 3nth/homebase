@@ -39,6 +39,7 @@
   untracked = cyan
 [merge]
   log = true
+        tool = p4merge
 [difftool "Kaleidoscope"]
   cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [rerere]
@@ -57,3 +58,19 @@
   insteadOf = "gist:"
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
+[credential]
+        help = osxkeychain
+        helper = osxkeychain
+[difftool "sourcetree"]
+        cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+        path =
+[mergetool "sourcetree"]
+        cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+        trustExitCode = true
+[push]
+        default = simple
+[mergetool]
+        prompt = false
+        keepBackup = false
+[mergetool "p4merge"]
+        path = /Users/derek/bin/p4merge
