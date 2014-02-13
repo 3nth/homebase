@@ -11,6 +11,9 @@ function src() {
     for file in ~/.source/*.sh; do
       source "$file"
     done
+    if [ -f ~/.bashrc.local ]; then
+        source ~/.bashrc.local
+    fi
   fi
 }
 
