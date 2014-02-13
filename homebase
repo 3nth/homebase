@@ -22,17 +22,17 @@ if [[ "$(type -P brew)" ]]; then
 fi
 
 if [[ ! "$(type -P git)" && "$OSTYPE" =~ ^darwin ]]; then
-     e_header "Installing git"
+     e_header "installing git"
      brew install git
 fi
 
 if [[ ! "$(type -P git)" && "$(type -P yum)" ]]; then
-     e_header "Installing git"
+     e_header "installing git"
      yum install git
 fi
 
 if [[ ! "$(type -P git)" && "$(type -P apt-get)" ]]; then
-     e_header "Installing git"
+     e_header "installing git"
      apt-get install git
 fi
 
@@ -40,7 +40,7 @@ if [[ "$(type -P git)" ]]; then
     e_success "git installed"
 fi
 
-e_arrow "Cloning home"
+e_arrow "cloning home"
 if [ ! -d ~/homebase ]; then
 	git clone https://github.com/3nth/homebase ~/homebase
 fi
@@ -55,10 +55,13 @@ e_arrow "dotfiles, yo!"
 dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
 dotfiles -l
 
+e_header "installing/updating python packages"
+pip install --upgrade -r ~/.pip/stable.txt
+
 if [[ "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
-	e_header "Installing formulae"
+        e_header "installing/updating formulae"
 	python ~/homebase/kegstand.py
-	e_success "installed formulae:"
+        e_success "installed formulae"
 	brew list
 fi
 
@@ -73,9 +76,6 @@ cd ~/.vim/bundle/vundle && git pull
 
 e_arrow "update bundles"
 vim +BundleInstall +qall -e -s
-
-e_arrow "pip list -o"
-pip list -o
 
 e_arrow "source"
 source ~/.bashrc

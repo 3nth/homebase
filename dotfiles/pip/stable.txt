@@ -1,4 +1,8 @@
-distribute
+setuptools
+pip
+cookiecutter
 dotfiles
+jedi
+pyflakes
 virtualenv
 virtualenvwrapper
