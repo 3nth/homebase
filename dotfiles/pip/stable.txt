@@ -3,6 +3,6 @@ pip
 cookiecutter
 dotfiles
 jedi
-pyflakes
+flake8
 virtualenv
 virtualenvwrapper
