@@ -1,10 +1,10 @@
 set nocompatible " be iMproved
 filetype off " required
 
-if executable("powerline") && has("python2.7")
-    python2.7 from powerline.vim import setup as powerline_setup
-    python2.7 powerline_setup()
-    python2.7 del powerline_setup
+if executable("powerline") && has("python")
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
 endif
 
 if isdirectory(expand("~/.vim/bundle/vundle/"))
