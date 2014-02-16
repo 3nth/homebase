@@ -1,6 +1,3 @@
-#PYTHON_PATH=/usr/local/share/python
-#PATH=$PYTHON_PATH:$(path_remove $PYTHON_PATH)
-#export PATH
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
 export PROJECT_HOME=~/projects
 export WORKON_HOME=~/envs
