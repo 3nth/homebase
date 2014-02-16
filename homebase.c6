@@ -86,6 +86,21 @@ if [[ ! "$(type -P dotfiles)" ]]; then
         e_error "dotfiles not installed."
         exit 1
 fi
+
+if [[ ! "$(type -P tmux)" ]]; then
+    cd ~/build
+    wget https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
+    tar zxvf libevent-2.0.21-stable.tar.gz
+    cd libevent-2.0.21-stable
+    ./configure --prefix=/usr/local
+    make && sudo make install
+    cd ~/build
+    wget http://softlayer-ams.dl.sourceforge.net/project/tmux/tmux/tmux-1.8/tmux-1.8.tar.gz
+    tar zxvf tmux-1.8.tar.gz
+    cd tmux-1.8
+    ./configure --prefix=/usr/local
+    make && sudo make install
+fi
  
 e_arrow "dotfiles, yo!"
 dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
