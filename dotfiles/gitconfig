@@ -73,4 +73,4 @@
         prompt = false
         keepBackup = false
 [mergetool "p4merge"]
-        path = /Users/derek/bin/p4merge
+        path = /Applications/p4merge.app/Contents/MacOS/p4merge

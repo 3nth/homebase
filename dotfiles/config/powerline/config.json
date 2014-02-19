@@ -1,5 +1,7 @@
 {
 	"common": {
+        "log_file": "/tmp/powerline.log",
+        "log_level": "DEBUG",
 		"term_truecolor": false,
 		"dividers": {
 			"left": {
