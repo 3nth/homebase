@@ -18,8 +18,13 @@
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
   rb = rbranch
   rv = review
-  st = status
+  st = status -sb
   ksdiff = difftool -y -t Kaleidoscope
+  ds = diff --staged
+  amend = commit --amend -C HEAD
+  undo = reset --soft HEAD^
+  ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+  graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
 [branch "master"]
   remote = origin
   merge = refs/heads/master
