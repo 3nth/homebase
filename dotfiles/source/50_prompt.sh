@@ -1,3 +1,6 @@
+if [[ "$(type -P powerline)" ]]; then
+    return 1
+fi
 # My awesome bash prompt
 #
 # Copyright (c) 2012 "Cowboy" Ben Alman

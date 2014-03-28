@@ -5,6 +5,8 @@
 PATH=/usr/local/bin:$(path_remove /usr/local/bin)
 export PATH
 
+source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
 
