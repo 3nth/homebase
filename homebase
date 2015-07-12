@@ -14,7 +14,7 @@ fi
 
 if [[ ! "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
      e_header "Installing Homebrew"
-     true | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+     true | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 if [[ "$(type -P brew)" ]]; then
@@ -80,4 +80,4 @@ vim +BundleInstall +qall -e -s
 e_arrow "source"
 source ~/.bashrc
 
-e_success "Welcome Home!"
+e_success "Welcome Home"
