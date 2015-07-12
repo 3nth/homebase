@@ -7,3 +7,5 @@ flake8
 virtualenv
 virtualenvwrapper
 wheel
+docutils
+pyodbc
