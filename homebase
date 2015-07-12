@@ -14,6 +14,7 @@ fi
 if [[ ! "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
      e_header "Installing Homebrew"
      true | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+     brew tap Homebrew/bundle
 fi
 
 if [[ "$(type -P brew)" ]]; then
@@ -67,9 +68,9 @@ e_header "installing/updating python packages"
 pip install --upgrade -r ~/.pip/stable.txt
 
 if [[ "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
-        e_header "installing/updating formulae"
-	python ~/homebase/kegstand.py
-        e_success "installed formulae"
+    e_header "installing/updating formulae"
+        brew bundle --global
+    e_success "installed formulae"
 	brew list
 fi
 
