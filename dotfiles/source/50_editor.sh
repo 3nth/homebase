@@ -1,14 +1,17 @@
 # Editing
 
-if [[ ! "$SSH_TTY" && "$OSTYPE" =~ ^darwin ]]; then
-  export EDITOR='gvim'
-  export LESSEDIT='gvim %f'
-  alias q='gvim'
-else
-  export EDITOR="vim -e"
-  alias q="$EDITOR -w -z"
-fi
+#if [[ ! "$SSH_TTY" && "$OSTYPE" =~ ^darwin ]]; then
+#  export EDITOR='gvim'
+#  export LESSEDIT='gvim %f'
+#  alias q='gvim'
+#else
+#  export EDITOR="vim -e"
+#  alias q="$EDITOR -w -z"
+#fi
 
+export EDITOR="vim -e"
+alias q="$EDITOR -w -z"
+  
 export VISUAL="$EDITOR"
 
 alias q.='q .'
