@@ -1,9 +1,9 @@
 [include]
-        path = .gitconfig_local
+  path = .gitconfig_local
 [core]
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
-        excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
   editor = vim
 [apply]
   whitespace = fix
@@ -66,15 +66,15 @@
 [credential]
         helper = osxkeychain
 [difftool "sourcetree"]
-        cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-        path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-        cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-        trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [push]
-        default = simple
+  default = simple
 [mergetool]
-        prompt = false
-        keepBackup = false
+  prompt = false
+  keepBackup = false
 [mergetool "p4merge"]
-        path = /Applications/p4merge.app/Contents/MacOS/p4merge
+  path = /Applications/p4merge.app/Contents/MacOS/p4merge
