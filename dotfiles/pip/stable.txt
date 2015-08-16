@@ -9,3 +9,4 @@ virtualenvwrapper
 wheel
 docutils
 pyodbc
+powerline-status
