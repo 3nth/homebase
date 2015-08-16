@@ -68,6 +68,8 @@ e_header "installing/updating python packages"
 pip install --upgrade -r ~/.pip/stable.txt
 
 if [[ "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
+    e_header "updating brew"
+    brew update
     brew tap Homebrew/bundle
     e_header "installing/updating formulae"
     brew bundle --global
