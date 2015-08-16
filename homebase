@@ -8,8 +8,7 @@ function e_arrow()    { echo -e " \033[1;33m➜\033[0m  $@"; }
 
 # Ensure that we can actually, like, compile anything.
 if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
-  e_error "The XCode Command Line Tools must be installed first."
-  exit 1
+  xcode-select --install
 fi
 
 if [[ ! "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
@@ -44,12 +43,21 @@ e_arrow "cloning home"
 if [ ! -d ~/homebase ]; then
 	git clone https://github.com/3nth/homebase ~/homebase
 fi
+
 cd ~/homebase && git pull
+
+if [[ ! "$(type -P pip)" && "$OSTYPE" =~ ^darwin ]]; then
+     e_header "installing python"
+     brew install python
+     pip install --upgrade pip
+     pip install --upgrade setuptools
+     pip install --upgrade virtualenv
+fi
 
 if [[ ! "$(type -P dotfiles)" ]]; then
      e_header "Installing dotfiles"
-	 pip install dotfiles
- fi
+        pip install dotfiles
+fi
  
 e_arrow "dotfiles, yo!"
 dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
