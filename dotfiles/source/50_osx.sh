@@ -69,5 +69,7 @@ function txt_sub_restore() {
   )
   for cmd in "${cmds[@]}"; do /usr/libexec/PlistBuddy -c "$cmd" "$prefs"; done
 }
-
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+function fix_brew_permissions() {
+        sudo chmod g+w /usr/local
+        sudo chgrp admin /usr/local
+}
