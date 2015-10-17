@@ -73,3 +73,4 @@ function fix_brew_permissions() {
         sudo chmod g+w /usr/local
         sudo chgrp admin /usr/local
 }
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
