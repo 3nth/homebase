@@ -46,11 +46,12 @@ function setupPath() {
     #XCode/Developer
     addPath /Developer/usr/bin
     #Normal system stuff
-    addPath /bin
     addPath /usr/bin
-    addPath /sbin
+    addPath /bin
     addPath /usr/sbin
-    addPath /usr/X11/bin
+    addPath /sbin
+    addPath /opt/X11/bin
+    addPath /usr/local/share/dotnet
 }
 #Run this during shell startup. Can be re-run as needed manually as well
 setupPath

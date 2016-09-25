@@ -16,5 +16,5 @@ brew "the_silver_searcher"
 brew "cmake"
 brew "tmux"
 
-tap "aspnet/dnx"
-brew "dnvm"
+#tap "aspnet/dnx"
+#brew "dnvm"
