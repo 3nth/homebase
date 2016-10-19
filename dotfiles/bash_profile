@@ -1,3 +1,49 @@
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
-fi
+# Source .bashrc if present (freesurfer needs this)
+[[ -r ~/.bashrc ]] && . ~/.bashrc
+
+# History handling
+export HISTFILESIZE=400000000
+export HISTSIZE=10000
+# no dupes
+export HISTCONTROL="erasedups"
+# Ignore backgrounding , mutt, quitting, clearing
+export HISTIGNORE="&:mutt:[bf]g:exit:clear"
+# append every command to history
+export PROMPT_COMMAND="history -a"
+
+# Ensure these are searched first on PATH
+PATH=/usr/local/bin:/usr/local:$PATH
+
+# Setting PATH for EPD-7.3-2 (Enthought Python Distro)
+# The orginal version is saved in .bash_profile.pysave
+EPDPATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin"
+
+# What is this for again? Meh... 
+MKL_NUM_THREADS=1
+export MKL_NUM_THREADS
+
+# relevant at one point, swearsies... 
+PYTHONPATH="/usr/local/lib/python2.7/site-packages"
+
+# Image Processing Tool paths
+CAMINOPATH="~/Users/st_buckls/imageprocessing/camino/bin"
+# FSL Configuration 
+FSLDIR=/usr/local/fsl
+# Now source that FSL Config
+. ${FSLDIR}/etc/fslconf/fsl.sh
+
+# Put goodies in $PATH
+PATH="${PATH}:${FSLDIR}/bin:${EPDPATH}:${PYTHONPATH}:${CAMINOPATH}"
+
+# added by Anaconda3 4.2.0 installer
+export PATH="/Users/st_buckls/anaconda3/bin:$PATH"
+
+### Aliases ###
+alias fsl='command /opt/X11/bin/xinit fsl &' # this is dumb but works fine when thinking == bad
+
+#### Helper Functions ####
+
+# view man pages as PDF (yoink)
+function pman { 
+    man -t $* | open -g -f -a /Applications/Preview.app
+}
