@@ -15,6 +15,3 @@ brew "macvim", args: ['env-std', 'override-system-vim', 'enable-pythoninterp']
 brew "the_silver_searcher"
 brew "cmake"
 brew "tmux"
-
-#tap "aspnet/dnx"
-#brew "dnvm"
