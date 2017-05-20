@@ -65,6 +65,6 @@ function chpwd() {
 
 function cd()
 {
-    builtin cd $@
+    builtin cd "$@"
     chpwd
 }
