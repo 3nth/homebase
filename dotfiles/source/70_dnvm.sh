@@ -1,3 +1,5 @@
+source ~/lib/azure-cli/az.completion
+
 return 
 
 source dnvm.sh
