@@ -89,9 +89,9 @@ cd ~/.vim/bundle/vundle && git pull
 e_arrow "update bundles"
 vim +BundleUpdate +qall -e
 
-if [[ -e ~/.vim/bundle/YouCompleteMe/install.sh && ! -e ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]]; then
+if [[ -e ~/.vim/bundle/YouCompleteMe/install.py && ! -e ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]]; then
     e_arrow "YouCompleteMe"
-	~/.vim/bundle/YouCompleteMe/install.sh
+	~/.vim/bundle/YouCompleteMe/install.py
 fi
 
 e_arrow "source"
