@@ -47,17 +47,17 @@ fi
 
 cd ~/homebase && git pull
 
-if [[ ! "$(type -P pip)" && "$OSTYPE" =~ ^darwin ]]; then
+if [[ ! "$(type -P pip3)" && "$OSTYPE" =~ ^darwin ]]; then
      e_header "installing python"
      brew install python
-     pip install --upgrade pip
-     pip install --upgrade setuptools
-     pip install --upgrade virtualenv
+     pip3 install --upgrade pip
+     pip3 install --upgrade setuptools
+     pip3 install --upgrade virtualenv
 fi
 
 if [[ ! "$(type -P dotfiles)" ]]; then
      e_header "Installing dotfiles"
-        pip install dotfiles
+        pip3 install dotfiles
 fi
  
 e_arrow "dotfiles, yo!"
@@ -65,7 +65,7 @@ dotfiles -C ~/homebase/dotfiles/dotfilesrc -s -f
 dotfiles -l
 
 e_header "installing/updating python packages"
-pip install --upgrade -r ~/.pip/stable.txt
+pip3 install --upgrade -r ~/.pip/stable.txt
 
 if [[ "$(type -P brew)" && "$OSTYPE" =~ ^darwin ]]; then
     e_header "updating brew"
