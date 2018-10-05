@@ -26,32 +26,34 @@ function addPath() {
 function setupPath() {
     #Start with an empty PATH
     PATH=
-    #Local pwd stuff
-    addPath "${PWD}/script"
-    addPath "${PWD}/bin"
-    #For node
-    addPath "${PWD}/node_modules/.bin"
-    addPath "${PWD}/node/bin"
-    #For python virtualenvs
-    addPath "${PWD}/env/bin"
+    # #Local pwd stuff
+    # addPath "${PWD}/script"
+    # addPath "${PWD}/bin"
+    # #For node
+    # addPath "${PWD}/node_modules/.bin"
+    # addPath "${PWD}/node/bin"
+    # #For python virtualenvs
+    # addPath "${PWD}/env/bin"
 
     #Personal home dir stuff
     addPath ~/bin
-    #For rbenv
-    addPath ~/.rbenv/bin
-    addPath ~/.cabal/bin
+    # #For rbenv
+    # addPath ~/.rbenv/bin
+    # addPath ~/.cabal/bin
     #Homebrew
-    addPath ~/Library/Python/2.7/bin
-    addPath /usr/local/bin
+    # addPath ~/Library/Python/2.7/bin
     #XCode/Developer
-    addPath /Developer/usr/bin
+    # addPath /Developer/usr/bin
     #Normal system stuff
+    addPath /usr/local/bin
     addPath /usr/bin
     addPath /bin
+    addPath /usr/local/sbin
     addPath /usr/sbin
     addPath /sbin
     addPath /opt/X11/bin
     addPath /usr/local/share/dotnet
+    addPath "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 }
 #Run this during shell startup. Can be re-run as needed manually as well
 setupPath
