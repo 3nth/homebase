@@ -5,6 +5,8 @@
 PATH=/usr/local/bin:$(path_remove /usr/local/bin)
 export PATH
 
+addPath /Library/TeX/texbin
+
 #source `brew --repository`/Library/Contributions/brew_bash_completion.sh
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
